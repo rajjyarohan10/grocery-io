@@ -1,0 +1,166 @@
+
+@font-face {
+    font-family: Chana;
+    src: url(./Fonts/CHANEY-UltraExtended.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HTML could have been htmal as well? */
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+#main{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.loader{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #c086f0; 
+    animation: pulse 5s;   
+}
+
+.zoom{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(-7deg);
+    font-size: 9vw;
+    font-family: Chana;
+    -webkit-text-stroke-width: 0.10vh;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: #fff;
+    outline: none;
+    font-weight: 200;
+}
+
+.loader h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-7deg) translate(-50%, -50%);
+    font-size: 4vw;
+    font-family: Chana;
+    color: #fff;
+    /*padding: 2vw;*/
+}
+
+.Loading {
+    position: relative;
+    left: 50%;
+    width: 50%;
+    bottom: -65%;
+    height: 10px;
+    transform: rotate(-7deg) translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    /*display: inline-block;*/
+}
+
+.Loading::after{
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    height: 100%;
+    border-radius: 4px;
+    animation: load 4s;
+}
+
+@keyframes load{
+    0%{
+        width: 0;
+        background-color: #d298f9;
+    }
+
+    25%{
+        width: 25%;
+        background-color: #a02deb;
+    }
+
+    50%{
+        width: 50%;
+        background-color: #d0bdf4;
+    }
+
+    75%{
+        width: 75%;
+        background-color: #d2d2d2;
+    }
+
+    100%{
+        width: 100%;
+        background-color: #beb2c8;
+    }
+}
+
+
+@keyframes pulse{
+    0%{
+        /*width: 0;*/
+        background-color: #a28089;
+    }
+
+    25%{
+        /*width: 25%;*/
+        background-color: #a02deb;
+    }
+
+    50%{
+        /*width: 50%;*/
+        background-color: #d0bdf4;
+    }
+
+    75%{
+        /*width: 75%;*/
+        background-color: #d2d2d2;
+    }
+
+    100%{
+        /*width: 100%;*/
+        background-color: #a944fb;
+    }
+}
+
+#continueBtn {
+    position: absolute;
+    top: 80%; /* Positioning below the loading bar */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%);
+    padding: 10px 30px;
+    font-size: 26px;
+    font-family: Chana;
+    background-color: #fff; /* White background for visibility */
+    color: #c086f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#zipCodeInput {
+    position: absolute;
+    top: 72%; /* Positioning above the continue button */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff; /* Light grey background for the input box */
+    color: #333; /* Dark grey color for input text */
+    border: 2px solid #ccc; /* Border color */
+    border-radius: 5px;
+}
+
+/* Style the placeholder text */
+#zipCodeInput::placeholder {
+    color: #c086f0; /* Lighter grey for placeholder text */
+}
