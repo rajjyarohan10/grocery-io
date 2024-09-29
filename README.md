@@ -22,4 +22,4 @@ We learned a lot about how JavaScript works and the integration between the fron
 
 ## What's next for Grocery.io
 Next, we plan to integrate Google Maps for displaying store locations, enhance the web scraping functionality, and use real-time data to offer a more robust shopping experience.
-![Next feature](https://youtu.be/rRMVe65NcWc)
+[Future Deisgn](https://youtu.be/rRMVe65NcWc)
