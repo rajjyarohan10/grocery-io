@@ -1,3 +1,4 @@
+// src/data/priceInventory.js
 const priceInventory = [
     {
       "productID": "1",
@@ -31,6 +32,7 @@ const priceInventory = [
       "productName": "Eggs",
       "category": "Dairy"
     }
-    // More items here
   ];
+  
+  export default priceInventory;
   
