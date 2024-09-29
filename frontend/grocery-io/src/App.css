@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.grocery-list {
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f1f8e9; /* Very light pastel green */
+  font-family: 'Playfair Display', serif;
+  color: #388e3c; /* Dark green text */
+}
+
+.grocery-list ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.grocery-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.grocery-list li:hover {
+  background-color: #c8e6c9; /* Light green on hover */
+}

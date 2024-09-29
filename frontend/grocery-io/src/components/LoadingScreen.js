@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import './LoadingScreen.css'; // Assuming you have this CSS
 
-const LoadingScreen = () => {
+const LoadingScreen = ({ onSubmitZipCode }) => {
   const [zipCode, setZipCode] = useState(''); // State for zip code input
   const [showInput, setShowInput] = useState(false); // Show input after animation
 
   useEffect(() => {
-    // This will run when the component is mounted (like $(document).ready)
-    
+    // This will run when the component is mounted
+
     // 1. Simulate the descrambler effect (this replaces $scramble.scramble)
     const scrambleText = () => {
       const scramble = document.querySelector('.scramble');
@@ -45,8 +45,7 @@ const LoadingScreen = () => {
     if (zipCode.trim() === "") {
       alert("Please enter your zip code to continue.");
     } else {
-      alert(`Zip Code entered: ${zipCode}. Proceeding...`);
-      // You can add your logic here for what happens next
+      onSubmitZipCode(zipCode);  // Call the prop function passed from App.js
     }
   };
 
@@ -78,6 +77,89 @@ const LoadingScreen = () => {
 };
 
 export default LoadingScreen;
+
+
+// Before merging the new LoadingScreen
+// src/components/LoadingScreen.js
+// import React, { useState, useEffect } from 'react';
+// import './LoadingScreen.css'; // Assuming you have this CSS
+
+// const LoadingScreen = () => {
+//   const [zipCode, setZipCode] = useState(''); // State for zip code input
+//   const [showInput, setShowInput] = useState(false); // Show input after animation
+
+//   useEffect(() => {
+//     // This will run when the component is mounted (like $(document).ready)
+    
+//     // 1. Simulate the descrambler effect (this replaces $scramble.scramble)
+//     const scrambleText = () => {
+//       const scramble = document.querySelector('.scramble');
+//       if (!scramble) return;
+
+//       let originalText = scramble.textContent;
+//       let scrambledText = originalText.split('').map(() => '*').join('');
+//       scramble.textContent = scrambledText;
+
+//       let currentIndex = 0;
+//       const interval = setInterval(() => {
+//         scramble.textContent = originalText.slice(0, currentIndex + 1) + scrambledText.slice(currentIndex + 1);
+//         currentIndex++;
+
+//         if (currentIndex === originalText.length) {
+//           clearInterval(interval);
+//         }
+//       }, 100); // You can change the timing here for the scramble effect
+//     };
+
+//     scrambleText(); // Start scrambling the text when the component mounts
+
+//     // 2. Simulate the end of the loading animation
+//     const loadingElement = document.querySelector('.Loading');
+//     loadingElement.addEventListener('animationend', () => {
+//       setTimeout(() => {
+//         setShowInput(true); // Show input and button after the animation
+//       }, 1000); // You can match this duration to your real animation
+//     });
+
+//   }, []); // Empty array means this effect runs only once when the component is mounted
+
+//   const handleContinue = () => {
+//     if (zipCode.trim() === "") {
+//       alert("Please enter your zip code to continue.");
+//     } else {
+//       alert(`Zip Code entered: ${zipCode}. Proceeding...`);
+//       // You can add your logic here for what happens next
+//     }
+//   };
+
+//   return (
+//     <div id="main">
+//       <div className="loader">
+//         <h2 className="zoom">GROCERY.IO</h2>
+//         <h1 className="scramble">GROCERY.IO</h1>
+//         <div className="Loading"></div>
+//       </div>
+
+//       {/* Conditional rendering for input and button */}
+//       {showInput && (
+//         <>
+//           <input
+//             id="zipCodeInput"
+//             type="text"
+//             placeholder="Enter Zip Code"
+//             value={zipCode}
+//             onChange={(e) => setZipCode(e.target.value)}
+//           />
+//           <button id="continueBtn" onClick={handleContinue}>
+//             Continue
+//           </button>
+//         </>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default LoadingScreen;
 
 
 /* Old code before adding 'zip code' clicking component */
